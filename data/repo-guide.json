@@ -92,6 +92,19 @@
       ]
     },
     {
+      "title": "🚨 THE DEATH LOOP ESCAPE",
+      "color": "#ef4444",
+      "is_flow": true,
+      "steps": [
+        { "kind": "start", "content": "AI repeats same error twice" },
+        { "kind": "step", "content": "STOP typing the same thing" },
+        { "kind": "decision", "content": "Is it a hallu- cination?" },
+        { "kind": "step", "content": "Clear Chat Context" },
+        { "kind": "step", "content": "Rewrite the Prompt using new constraints" },
+        { "kind": "start", "content": "Success!" }
+      ]
+    },
+    {
       "title": "🔭 NEXT STEPS",
       "color": "#5D6B41",
       "content": "**Future Learning:** Explore `assets/themes/` to implement dynamic theme loading.\n**Links:** Official repo at `github.com/abuhafi/posterMaker`."

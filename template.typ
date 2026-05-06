@@ -125,6 +125,34 @@
   )
 }
 
+// COMPONENT: Flowchart Start/End Node
+#let start-node(content) = {
+  rect(
+    inset: 6pt,
+    radius: 50%, // Oval/Pill shape
+    fill: rgb("#5D6B41"),
+    stroke: 0.5pt + rgb("#FAF9F5"),
+    align(center, text(size: 8pt, weight: "bold", fill: rgb("#FAF9F5"))[#content])
+  )
+}
+
+// COMPONENT: Flowchart Decision Node (Diamond-ish)
+#let decision-node(content) = {
+  polygon(
+    fill: rgb("#252B24"),
+    stroke: 0.5pt + rgb("#ef4444"),
+    (0%, 50%),
+    (50%, 0%),
+    (100%, 50%),
+    (50%, 100%),
+  )
+  place(center + horizon, block(width: 80%)[
+    #set align(center)
+    #text(size: 8pt, fill: rgb("#FAF9F5"), weight: "bold")[#content]
+  ])
+  v(1.5cm) // Give it space since it's a polygon
+}
+
 // COMPONENT: Step Node
 // Used for simple flowchart sequences.
 #let step-node(content, fill: rgb("#3F443E")) = {
@@ -140,7 +168,9 @@
 // COMPONENT: Arrow
 // A simple visual separator for flowcharts.
 #let arrow-down = {
-  align(center, text(size: 15pt, fill: gray)[↓])
+  v(-4pt)
+  align(center, text(size: 12pt, fill: rgb("#5D6B41"))[↓])
+  v(-4pt)
 }
 
 // COMPONENT: Callout
