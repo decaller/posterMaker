@@ -87,3 +87,16 @@
     text(size: 9pt, style: "italic")[#body]
   )
 }
+#let level-badge(level, tweak) = {
+  block(
+    fill: rgb("#f3f4f6"),
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 0.5pt + gray.lighten(30%),
+    grid(
+      columns: (1fr, 1fr),
+      align(left, text(weight: "bold")[Babysitting: #level]),
+      align(right, text(style: "italic", fill: gray.darken(30%))[Manual Tweak: #tweak])
+    )
+  )
+}

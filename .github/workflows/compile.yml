@@ -21,6 +21,17 @@ jobs:
       - name: Compile Poster
         run: typst compile main.typ poster.pdf
 
+      - name: Update AI Context (llms.txt)
+        run: ./scripts/update_llms.sh
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add llms.txt
+          git diff --quiet && git diff --staged --quiet || git commit -m "docs: auto-update llms.txt context"
+          git push
+
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:

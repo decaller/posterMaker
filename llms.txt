@@ -17,3 +17,13 @@ This repository is a factory for building professional, multi-column posters usi
 - **Vector First**: All flowcharts and icons should be drawn using Typst code or SVG.
 - **Tagged PDF**: Ensure accessibility by using semantic Typst headings.
 - **Cheatsheet Vibe**: Use grids, boxes, and high contrast.
+
+## Prompting for Layouts
+When asking AI to modify posters, use these instructions:
+- **Spanning**: To make a section wider, tell the AI: "Set `span: 2` (or 3) for the [Section Name] in the JSON."
+- **Internal Grids**: For complex content inside a box, ask the AI to: "Use a `#grid` or `#stack` within the `content` field of the JSON."
+- **Flowcharts**: To add a sequence, set `"is_flow": true` and provide a list of `"steps"`.
+
+## Available Posters
+- **HOW TO BUILD A POSTER WITH POSTERMAKER**: defined in `data/how-to.json`
+- **AI CO-PILOT RECIPE: FULL-STACK AUTH**: defined in `data/ai-recipe.json`

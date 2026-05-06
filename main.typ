@@ -1,7 +1,8 @@
 #import "template.typ": *
 
 // Load data
-#let data = json("data/how-to.json")
+// #let data = json("data/how-to.json")
+#let data = json("data/ai-recipe.json")
 
 #show: body => poster(
   title: data.title,
@@ -11,20 +12,27 @@
   body
 )
 
-#for section in data.sections [
-  #section-box(title: section.title, color: rgb(section.color))[
-    #if section.at("is_flow", default: false) {
-      for (i, step) in section.steps.enumerate() {
-        step-node(step)
-        if i < section.steps.len() - 1 {
-          arrow-down
+#if data.at("babysitting_level", default: none) != none {
+  level-badge(data.babysitting_level, data.manual_tweak)
+  v(0.5cm)
+}
+
+#for section in data.sections {
+  grid.cell(colspan: section.at("span", default: 1))[
+    #section-box(title: section.title, color: rgb(section.color))[
+      #if section.at("is_flow", default: false) {
+        for (i, step) in section.steps.enumerate() {
+          step-node(step)
+          if i < section.steps.len() - 1 {
+            arrow-down
+          }
         }
+      } else {
+        section.content
       }
-    } else {
-      section.content
-    }
+    ]
   ]
-]
+}
 
 #v(1fr)
 

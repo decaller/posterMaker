@@ -1,0 +1,40 @@
+{
+  "title": "AI CO-PILOT RECIPE: FULL-STACK AUTH",
+  "babysitting_level": "HIGH 🔴",
+  "manual_tweak": "60%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ REALITY CHECK",
+      "color": "#ef4444",
+      "content": "AI is prone to 'condong' (outdated) knowledge. **The Death Loop:** If AI apologizes twice for the same error, STOP. Open a fresh chat."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#3b82f6",
+      "content": "**Global View:** Automate JWT & Social Login wiring.\n**Motivation:** Auth is painful. Do this once, never do it manually again."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#10b981",
+      "content": "- Node.js v18+\n- Local throwaway DB keys\n- MCP Server for context"
+    },
+    {
+      "title": "🚀 THE 4-PHASE WORKFLOW",
+      "color": "#8b5cf6",
+      "span": 2,
+      "is_flow": true,
+      "steps": [
+        "Phase 1: Blueprint (Specs)",
+        "Phase 2: Build (Generation)",
+        "Phase 3: Audit (Testing)",
+        "Phase 4: Ship (Deployment)"
+      ]
+    },
+    {
+      "title": "🛡️ GUARDRAILS",
+      "color": "#06b6d4",
+      "content": "Run `terraform plan` or `Prisma diff`. Do not deploy if you see unexpected DB drops."
+    }
+  ]
+}
