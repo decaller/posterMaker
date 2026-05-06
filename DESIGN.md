@@ -1,78 +1,70 @@
 ---
-name: Claude-Green
-version: alpha
-description: A warm-canvas editorial interface inspired by Anthropic's Claude, but shifted toward an organic, lush green palette. The system anchors on a tinted cream canvas with slab-serif display headlines and deep fern-green accents.
+name: Claude-Midnight-Botanical
+version: 1.0.0
+description: A high-craft, "Living Dark" editorial system. Inspired by the quiet focus of a midnight conservatory.
+
+# Colors (OKLCH Strategy: Committed)
+# Laws: Neutrals are tinted with primary hue (h: 145) at c: 0.01
 colors:
-  primary: "#4F7942"    # Fern Green (Replaces Claude's Coral)
-  primary-active: "#3E5F34"
-  primary-disabled: "#E6DFD8"
-  ink: "#141413"        # Warm Dark Ink
-  body: "#3D3D3A"
-  canvas: "#FAF9F5"     # Tinted Cream (The classic Claude floor)
-  surface-card: "#EFE9DE"
-  surface-dark: "#181715"
-  accent-leaf: "#88B04B" # Soft Leaf Green for highlights
-  neutral: "#FAFAFA"
-  danger: "#F87171"
-  info: "#06B6D4"
+  primary: "oklch(55% 0.08 145)"      # Warm Sage (Primary Brand Voltage)
+  primary-active: "oklch(45% 0.08 145)"
+  primary-disabled: "oklch(40% 0.01 145)"
+  ink: "oklch(96% 0.01 145)"          # Warm Cream (Tinted Neutral)
+  body: "oklch(85% 0.01 145)"         # Muted Cream-Slate
+  canvas: "oklch(28% 0.01 145)"       # Matte Slate (The "Midnight Floor")
+  surface-card: "oklch(24% 0.01 145)"
+  surface-dark: "oklch(18% 0.01 145)"
+  accent-leaf: "oklch(75% 0.12 145)"  # Vibrant growth accent
+  neutral-tint: "oklch(35% 0.01 145)"
+
 typography:
   h1:
     fontFamily: "Copernicus, Tiempos Headline, serif"
-    fontSize: 32pt
+    fontSize: 36pt
     fontWeight: 400
-    letterSpacing: -0.5px
+    letterSpacing: "-1.2px"           # The "Claude" Secret Sauce
+    lineHeight: 1.1
   body-md:
     fontFamily: "StyreneB, Inter, sans-serif"
     fontSize: 10pt
     lineHeight: 1.55
+    letterSpacing: "0.2px"
   label-caps:
     fontFamily: "StyreneB, Inter, sans-serif"
     fontSize: 11pt
-    fontWeight: bold
+    fontWeight: 700
+    letterSpacing: "0.5px"
+
 rounded:
-  sm: 6px
+  sm: 4px
   md: 8px
   lg: 12px
+
 spacing:
   margin: 1.5cm
   gutter: 1cm
+  rhythm: 1.25                 # Hierarchy ratio
+
 components:
   section-box:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.surface-card}"
     textColor: "{colors.ink}"
     rounded: "{rounded.lg}"
+    stroke: "1px {colors.primary}"
   header-block:
     backgroundColor: "{colors.primary}"
-    textColor: "#FFFFFF"
+    textColor: "{colors.canvas}"
 ---
 
 ## Overview
 
-The **Claude-Green** aesthetic is "Academic Growth." It combines the sophisticated, editorial feel of a high-end literary journal with an organic, green-tinted energy. It evokes the feeling of a sun-drenched botanical library.
+**Claude-Midnight-Botanical** is a design system for high-focus technical consumption. It rejects the "Cool Blue" corporate reflex in favor of a warm, organic dark mode. It is the visual equivalent of reading a masterfully typeset book in a greenhouse after dark.
 
-## Colors
+## The Midnight Scene
+*A senior architect, isolated in a dim room at 2 AM, needs to parse a complex system diagram. The screen must not emit blue-light glare; it must feel like paper illuminated by a soft, green-tinted lamp.*
 
-The palette anchors on the warmth of the cream canvas, punctuated by deep, forest-inspired greens.
+## Color Strategy: Living Neutrals
+We do not use dead grays. Every neutral (Ink, Body, Canvas) is tinted with **0.01 Chroma at 145° Hue**. This ensures the interface feels like a single, cohesive organism rather than a collection of separate boxes.
 
-- **Primary (#4F7942):** Fern Green. Used for major headers and primary actions. It feels stable and natural.
-- **Canvas (#FAF9F5):** The "Claude Floor." A warm, tinted cream that removes the harshness of pure white.
-- **Ink (#141413):** A warm, deep off-black used for all high-contrast text.
-
-## Typography
-
-The system uses a classic **Serif/Sans-Serif split** to create an editorial rhythm.
-
-- **H1 (Copernicus/Serif):** Regular weight (400) with slight negative tracking to feel like a printed book title.
-- **Body (Inter/Sans):** Humanist proportions for long-form reading comfort.
-
-## Layout & Spacing
-
-We use a spacious A3 grid that prioritizes breathing room, mirroring the "generous whitespace" philosophy of modern AI interfaces.
-
-- **Gutter (1cm):** Ensures that even dense information feels organized.
-- **Rounded (12px):** Larger radii on cards to feel soft and approachable.
-
-## Components
-
-- **Section Box:** Uses the `{colors.canvas}` for a warm, paper-like feel within the grid.
-- **Header Block:** Uses the `{colors.primary}` fern green to anchor the user's attention.
+## Typography: The Literary Voice
+The Serif `h1` is the brand's anchor. The negative letter-spacing (-1.2px) is mandatory; without it, the typeface loses its "Academic Gravitas" and becomes generic.

@@ -6,22 +6,22 @@
   "sections": [
     {
       "title": "⚠️ REALITY CHECK",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "AI is prone to 'condong' (outdated) knowledge. **The Death Loop:** If AI apologizes twice for the same error, STOP. Open a fresh chat."
     },
     {
       "title": "🗺️ THE BIG PICTURE",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "**Global View:** Automate JWT & Social Login wiring.\n**Motivation:** Auth is painful. Do this once, never do it manually again."
     },
     {
       "title": "🛠️ THE SETUP",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "- Node.js v18+\n- Local throwaway DB keys\n- MCP Server for context"
     },
     {
       "title": "🚀 THE 4-PHASE WORKFLOW",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "span": 2,
       "is_flow": true,
       "steps": [
@@ -33,12 +33,12 @@
     },
     {
       "title": "🛡️ GUARDRAILS",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "Run `terraform plan` or `Prisma diff`. Do not deploy if you see unexpected DB drops."
     },
     {
       "title": "🚨 INCIDENT: AUTH DEATH LOOP",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "**Issue:** AI kept using `express-session` when I asked for JWT.\n**Fix:** Clear context and explicitly say: 'Do not use sessions, only Stateless JWT'."
     }
   ]

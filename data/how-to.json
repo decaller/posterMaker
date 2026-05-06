@@ -5,17 +5,17 @@
   "sections": [
     {
       "title": "1. THE VIBE & FORMAT",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "A multi-column, highly visual cheatsheet with structured boxes and integrated flowcharts. We use **Tagged PDF** for accessibility and **Pure Vector Code** for crystal clear graphics at any size."
     },
     {
       "title": "2. THE TECH STACK",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "Ditch legacy LaTeX. We use **Typst**, a modern Rust-based engine. Keep content separate from design. Use **Tinymist** in your IDE for instant autocomplete and live preview."
     },
     {
       "title": "3. THE WORKFLOW",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "is_flow": true,
       "steps": [
         "Define Data in JSON/YAML",
@@ -26,22 +26,22 @@
     },
     {
       "title": "4. PRO SECRETS",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "**Zero Manual Builds:** Use GitHub Actions for CI/CD.\n**Data Decoupling:** Don't hardcode stats; pull them from external files.\n**AI Bridge:** Link to /llms.txt for agent context."
     },
     {
       "title": "5. AI CO-PILOT RECIPE",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "AI often hallucinates. Use the **4-Phase Adaptation**:\n1. Blueprint (Specs)\n2. Build (Generation)\n3. Audit (Testing)\n4. Ship (Deployment)"
     },
     {
       "title": "6. INSTALLATION (OS AGNOSTIC)",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "**Win:** `winget install typst` \n**Mac:** `brew install typst` \n**Linux:** `cargo install typst-cli` \n**Universal:** Download pre-built binaries from GitHub Releases."
     },
     {
       "title": "7. USEFUL COMMANDS",
-      "color": "#4F7942",
+      "color": "#5D6B41",
       "content": "`typst watch main.typ` - Live preview\n`typst compile main.typ` - Single build\n`typst update` - Self-update CLI"
     }
   ]

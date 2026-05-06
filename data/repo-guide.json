@@ -1,0 +1,59 @@
+{
+  "title": "AI CO-PILOT RECIPE: HOW TO USE POSTERMAKER",
+  "babysitting_level": "LOW 🟢",
+  "manual_tweak": "10%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ THE REALITY CHECK",
+      "color": "#5D6B41",
+      "content": "AI is blind unless guided. **Always verify:** The agent must read `DESIGN.md` before coding. **The Death Loop:** If the AI keeps breaking the design, stop. Force it to run `impeccable teach` and reload the context."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#5D6B41",
+      "content": "**The Global View:** A code-driven factory for generating high-craft, professional posters.\n**The Motivation:** Stop tweaking pixels in Figma. Define content in JSON, let the agent apply the `Typst` visual engine.\n**Why skip it?** If you just need a basic Google Doc."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#5D6B41",
+      "content": "**Prerequisites:**\n- `typst` CLI installed\n- The `data/` and `assets/` folders populated\n**Safe Credentials:** No API keys required. It runs 100% locally.\n**Accelerants:** Impeccable Design Workflow scripts."
+    },
+    {
+      "title": "🚀 PHASE 1: BLUEPRINT",
+      "color": "#5D6B41",
+      "content": "**Desc:** Start by editing `data/*.json` to define the poster content.\n**The Prompt:** *'Draft a JSON payload for a poster based on template.md.'*\n**Expected:** Clean JSON mapped to the 3-column grid.\n**Failure:** The AI breaks JSON syntax.\n**Fix:** Tell the agent to fix the trailing comma."
+    },
+    {
+      "title": "🚀 PHASE 2: BUILD",
+      "color": "#5D6B41",
+      "content": "**Desc:** Apply visual tokens to `template.typ`.\n**The Prompt:** *'Update DESIGN.md to use a warm slate palette with OKLCH values.'*\n**Expected:** A cohesive, Living Neutral color scheme.\n**Failure:** Contrast ratio is unreadable.\n**Fix:** Adjust the OKLCH chroma/lightness values manually."
+    },
+    {
+      "title": "🚀 PHASE 3: AUDIT",
+      "color": "#5D6B41",
+      "content": "**Desc:** Render and review visually.\n**The Prompt:** *'Run typst compile main.typ to PNG and view the file.'*\n**Expected:** A beautiful, correctly styled image.\n**Manual Check:** Does the text contrast properly against the nodes?\n**Guardrails:** Do not commit `template.typ` if it's illegible."
+    },
+    {
+      "title": "🚀 PHASE 4: SHIP",
+      "color": "#5D6B41",
+      "content": "**Desc:** Export to PDF for printing or sharing.\n**The Prompt:** *'Compile the final main.pdf and ensure vector fonts are embedded.'*\n**Expected:** A high-resolution, print-ready PDF."
+    },
+    {
+      "title": "🛡️ GUARDRAILS & TESTS",
+      "color": "#5D6B41",
+      "span": 2,
+      "content": "**Validation:** Never let the AI edit `SPEC.md` or `SKILLS.md` directly without a manual diff review. The 'Factory' layer must remain protected from the 'Product' layer changes."
+    },
+    {
+      "title": "🚨 INCIDENT REPORT",
+      "color": "#5D6B41",
+      "content": "**What Happened:** Text inside flowchart nodes became invisible.\n**The Root Cause:** Inherited default cream text on light gray boxes.\n**The Fix:** Updated `step-node` to explicitly use the `canvas` background and cream text.\n**Prevention:** Always compile to PNG and inspect visually."
+    },
+    {
+      "title": "🔭 NEXT STEPS",
+      "color": "#5D6B41",
+      "content": "**Future Learning:** Learn `typst` advanced grid techniques to span rows.\n**Links:** Official docs at `typst.app/docs`."
+    }
+  ]
+}

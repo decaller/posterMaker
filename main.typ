@@ -8,7 +8,7 @@
 // 1. DATA LOADING
 // You can switch posters by changing the filename here.
 // #let data = json("data/how-to.json")
-#let data = json("data/ai-recipe.json")
+#let data = json("data/repo-guide.json")
 
 // 2. TEMPLATE INITIALIZATION
 // We call the 'poster' function and pass in the global metadata.
@@ -42,9 +42,7 @@
             arrow-down
           }
         }
-      } 
-      // Otherwise, just render the text content.
-      else {
+      } else {
         section.content
       }
     ]
