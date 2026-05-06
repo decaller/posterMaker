@@ -50,11 +50,20 @@ typst watch main.typ
 
 ---
 
+## 🎨 Custom Fonts
+To use Google Fonts or any custom `.ttf` files:
+1.  Place your font files in `assets/fonts/`.
+2.  Typst will automatically detect them during compilation.
+3.  Update the `font` list in `template.typ` to include your new font name.
+
+---
+
 ## 🧠 AI Bridge (For Agents)
 
 This repository is optimized for AI assistance. Agents should refer to:
 - [`llms.txt`](llms.txt): The global context map.
-- [`SPEC.md`](SPEC.md): Technical constraints and vision.
+- [`SPEC.md`](SPEC.md): Technical architecture and project constraints.
+- [`DESIGN.md`](DESIGN.md): Visual identity and design token specification.
 - [`SKILLS.md`](SKILLS.md): Operational instructions for LLMs.
 
 ---

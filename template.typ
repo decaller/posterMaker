@@ -1,3 +1,10 @@
+// ----------------------------------------------------------------------------
+// POSTER DESIGN SYSTEM
+// This file defines the "Look and Feel" of all posters in this repo.
+// ----------------------------------------------------------------------------
+
+// The main 'poster' function that wraps everything.
+// Think of this as the "Layout Engine".
 #let poster(
   title: "",
   authors: (),
@@ -5,6 +12,7 @@
   columns: 3,
   body
 ) = {
+  // Page Configuration: Setting paper size, margins, and background color.
   set page(
     paper: "a3",
     margin: (x: 1.5cm, y: 1.5cm),
@@ -19,9 +27,10 @@
     ]
   )
 
-  set text(font: "Inter", size: 10pt, fill: rgb("#333333"))
+  // Typography Settings: Using high-quality system fonts.
+  set text(font: ("Adwaita Sans", "Cantarell", "DejaVu Sans"), size: 10pt, fill: rgb("#333333"))
   
-  // Title Section
+  // Title Section: A large, centered title block at the top.
   block(width: 100%, inset: (bottom: 1cm))[
     #set align(center)
     #text(size: 32pt, weight: "bold", fill: rgb("#1a1a1a"))[#title]
@@ -31,16 +40,18 @@
     }
   ]
 
-  // Main Content Grid
+  // Main Grid Layout: This is where the magic happens.
+  // It takes all your "body" content and puts it into columns.
   grid(
-    columns: (1fr,) * columns,
+    columns: (1fr,) * columns, // Creates 'n' columns of equal width (1fr)
     column-gutter: 1cm,
     row-gutter: 1cm,
-    ..body
+    body // Placed directly into the grid
   )
 }
 
-// Custom Components
+// COMPONENT: Section Box
+// A reusable box with a header and a body.
 #let section-box(title: "", color: rgb("#3b82f6"), body) = {
   block(
     width: 100%,
@@ -64,6 +75,8 @@
   )
 }
 
+// COMPONENT: Step Node
+// Used for the workflow/flowchart sections.
 #let step-node(content, fill: rgb("#f3f4f6")) = {
   rect(
     inset: 8pt,
@@ -74,10 +87,14 @@
   )
 }
 
+// COMPONENT: Arrow
+// A simple visual separator for flowcharts.
 #let arrow-down = {
   align(center, text(size: 15pt, fill: gray)[↓])
 }
 
+// COMPONENT: Callout
+// A highlighted box for "Pro Tips" or warnings.
 #let callout(body) = {
   block(
     fill: rgb("#fef3c7"),
@@ -87,6 +104,9 @@
     text(size: 9pt, style: "italic")[#body]
   )
 }
+
+// COMPONENT: Level Badge
+// Specific for "Recipes" to show difficulty at a glance.
 #let level-badge(level, tweak) = {
   block(
     fill: rgb("#f3f4f6"),

@@ -16,13 +16,33 @@ This repository is a factory for building professional, multi-column posters usi
 ## Design Philosophy
 - **Vector First**: All flowcharts and icons should be drawn using Typst code or SVG.
 - **Tagged PDF**: Ensure accessibility by using semantic Typst headings.
-- **Cheatsheet Vibe**: Use grids, boxes, and high contrast.
+- [SPEC.md](SPEC.md): The technical blueprint and stack architecture.
+- [DESIGN.md](DESIGN.md): The visual identity specification (Google Design MD format).
 
-## Prompting for Layouts
-When asking AI to modify posters, use these instructions:
-- **Spanning**: To make a section wider, tell the AI: "Set `span: 2` (or 3) for the [Section Name] in the JSON."
-- **Internal Grids**: For complex content inside a box, ask the AI to: "Use a `#grid` or `#stack` within the `content` field of the JSON."
-- **Flowcharts**: To add a sequence, set `"is_flow": true` and provide a list of `"steps"`.
+## Agent Interaction Protocol: Socratic Guided Blueprinting
+When a user wants to create a new poster/guide, follow this exact sequence. Do not skip steps.
+
+### Phase 1: The Strategic Interview
+Ask exactly **one question** at a time based on the categories in `idea/template.md`. Do not move to the next category until the current one is clear.
+1.  **Reality Check**: Why does this guide need to exist? Who is the audience?
+2.  **The Big Picture**: What is the ultimate "Final State" for the user?
+3.  **The Setup**: What technical environment or prerequisite tools are needed?
+4.  **The Workflow**: Break down the core process into 3-5 distinct phases.
+5.  **Guardrails**: What are the critical risks, and how do we prevent them?
+6.  **Incident Report**: What are common "Death Loops" or errors for this specific task?
+
+### Phase 2: Visual Identity Suggestion
+Based on the answers in Phase 1, suggest **3 distinct themes** from the `awesome-design-md` library. Explain *why* each theme fits the "vibe" of the project.
+- **Example**: If the task is technical/monochrome, suggest `Vercel` (High-Precision), `Linear` (Minimalist), or `Ollama` (Terminal-Native).
+- **Example**: If the task is data-dense, suggest `ClickHouse` (Technical Doc) or `Sentry` (Dashboard).
+
+### Phase 3: The Build (Separation of Concerns)
+Once a theme is chosen, you are authorized to update only the **Product Layer**:
+- **Update**: `DESIGN.md` (to reflect the chosen visual identity).
+- **Update**: `README.md` (to reflect the new poster's product description).
+- **Update**: `data/*.json` (to populate the actual content).
+
+**CRITICAL CONSTRAINT**: NEVER modify the **Factory Layer** (`SPEC.md` or `SKILLS.md`) during a guide-making session. These files define the project's internal mechanics and must remain stable.
 
 ## Available Posters
 - **HOW TO BUILD A POSTER WITH POSTERMAKER**: defined in `data/how-to.json`

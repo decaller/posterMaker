@@ -9,14 +9,12 @@ This document provides specialized instructions for AI agents (LLMs) to interact
 
 ## Operational Rules
 1. **Never Hardcode Content**: All text must live in a `.json` file inside the `data/` directory.
-2. **Schema Compliance**:
-   - `title`: String (Caps preferred).
-   - `color`: Hex code.
-   - `span`: Integer (1, 2, or 3).
-   - `is_flow`: Boolean (true for sequence diagrams).
-   - `steps`: Array of strings (required if `is_flow` is true).
-3. **Design System**: Use `section-box` for standard blocks and `level-badge` for recipes.
-4. **Validation**: After modifying a JSON or Typst file, always attempt to run `typst compile main.typ` to verify syntax.
+2. **Schema Compliance**: Follow the `DESIGN.md` tokens and the `main.typ` schema requirements.
+3. **Validation**: After any change, run `typst compile main.typ` to verify syntax.
+4. **Socratic Protocol**: Follow the 3-phase sequence in `llms.txt`. Ask exactly **one question** at a time. Never assume requirements.
+5. **Separation of Concerns**:
+   - **Allowed to Edit**: `DESIGN.md`, `README.md`, `data/*.json`.
+   - **Forbidden to Edit**: `SPEC.md`, `SKILLS.md` (these are the system's "Factory Settings").
 
 ## Prompting Patterns
 - **User Request**: "Add a troubleshooting section."

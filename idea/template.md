@@ -66,6 +66,16 @@ AI models are trained on past data and are highly prone to "condong" (biased/out
 
 ---
 
+### 🚨 The Incident Report (Post-Mortem)
+*Use this section only if you hit a major roadblock or a "Death Loop" during development.*
+
+- **What Happened?** [Describe the error/hallucination/broken state.]
+- **The Root Cause:** [Why did it break? e.g., AI used an outdated library version or ignored a constraint.]
+- **The Fix:** [How did you eventually resolve it? Paste the working prompt or manual code fix.]
+- **Prevention:** [How to avoid this next time? e.g., Update the `llms.txt` or use a more specific prompt.]
+
+---
+
 ### 🔭 Next Steps
 - **Future Learning:** [Topic to explore next]
 - **Links & Manuals:** [Link to Official Docs]
