@@ -1,0 +1,17 @@
+[package]
+name = "mindmap-cheatsheet"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Abuhafi <@abuhafi>"]
+license = "MIT"
+description = "A high-density, mindmap-inspired technical cheatsheet template with vertical sidebar and masonry flow."
+repository = "https://github.com/decaller/posterMaker"
+keywords = ["poster", "cheatsheet", "mindmap", "technical", "masonry"]
+categories = ["poster", "visualization", "layout"]
+compiler = "0.12.0"
+exclude = ["idea/*", "scripts/*", "data/*", "PRODUCT.md", "SPEC.md", "DESIGN.md", "SKILLS.md"]
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

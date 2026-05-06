@@ -1,0 +1,113 @@
+{
+  "title": "AI CO-PILOT RECIPE: HOW TO USE POSTERMAKER",
+  "babysitting_level": "LOW 🟢",
+  "manual_tweak": "10%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ THE REALITY CHECK",
+      "color": "#5D6B41",
+      "content": "AI is blind unless guided. **Always verify:** The agent must read `DESIGN.md` before coding. **The Death Loop:** If the AI keeps breaking the design, stop. Force it to run `impeccable teach` and reload the context."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#5D6B41",
+      "content": "**The Global View:** A code-driven factory for generating high-craft, professional posters.\n**The Motivation:** Stop tweaking pixels in Figma. Define content in JSON, let the agent apply the `Typst` visual engine.\n**Why skip it?** If you just need a basic Google Doc."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#5D6B41",
+      "content": "**Prerequisites:**\n- `typst` CLI installed\n- The `data/` and `assets/` folders populated\n**Safe Credentials:** No API keys required. It runs 100% locally.\n**Accelerants:** Impeccable Design Workflow scripts."
+    },
+    {
+      "title": "🚀 PHASE 1: BLUEPRINT",
+      "color": "#5D6B41",
+      "steps": [
+        {
+          "title": "Strategic Content Definition",
+          "desc": "Start by defining your poster content in the `data/` directory. Use `idea/variations.md` for inspiration on different technical contexts.",
+          "prompt": "Draft a Variant A JSON for data analysis based on the structure in template.md.",
+          "result": "A structured JSON file mapped to the 3-column grid.",
+          "failure": "The AI breaks JSON syntax or hallucinates non-existent fields.",
+          "fix": "Provide the exact JSON schema from `template.md` to the agent."
+        }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 2: BUILD",
+      "color": "#5D6B41",
+      "steps": [
+        {
+          "title": "Visual Engine Execution",
+          "desc": "Switch the data source in `main.typ` and tweak the design tokens in `template.typ` to match your desired aesthetic.",
+          "prompt": "Change main.typ to use my new json and update the primary color to a warm slate.",
+          "result": "The local PDF/PNG reflects the new content with cohesive styling.",
+          "failure": "The layout overflows because of excessively long text strings.",
+          "fix": "Use Typst grid spanning or reduce font size for specific sections."
+        }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 3: AUDIT",
+      "color": "#5D6B41",
+      "steps": [
+        {
+          "title": "Quality Assurance & Rendering",
+          "desc": "Compile the poster and inspect the visual hierarchy. Check for contrast issues and font rendering errors.",
+          "prompt": "Run typst compile main.typ and check for any font warnings or layout shifts.",
+          "result": "A high-resolution, print-ready vector file with zero compilation warnings.",
+          "failure": "Font warnings appear because a variable font is used where a static one is required.",
+          "fix": "Specify the static font weight (e.g., 'DejaVu Sans' instead of 'DejaVu Sans Variable')."
+        }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 4: SHIP",
+      "color": "#5D6B41",
+      "steps": [
+        {
+          "title": "AI Context Synchronization",
+          "desc": "Execute the automation bridge to ensure other AI agents can discover and understand your new poster.",
+          "prompt": "Run bash scripts/update_llms.sh and verify the available posters list in llms.txt.",
+          "result": "The `llms.txt` manifest is updated with the new poster title and file path."
+        }
+      ]
+    },
+    {
+      "title": "🛡️ GUARDRAILS & TESTS",
+      "color": "#5D6B41",
+      "span": 2,
+      "content": "**Validation:** Never hardcode content in `.typ` files. The 'Factory' must remain generic. Always verify your changes with `typst compile main.typ` to ensure the vector logic holds."
+    },
+    {
+      "title": "🚨 INCIDENT REPORT",
+      "color": "#5D6B41",
+      "steps": [
+        {
+          "title": "Visual Contrast Failure",
+          "desc": "Box titles were unreadable due to low contrast between text and header background.",
+          "failure": "Dark gray text (#3F443E) on dark primary background.",
+          "fix": "Updated `template.typ` to use Off-White (#FAF9F5) for all section titles."
+        }
+      ]
+    },
+    {
+      "title": "🚨 THE DEATH LOOP ESCAPE",
+      "color": "#ef4444",
+      "is_flow": true,
+      "steps": [
+        { "kind": "start", "content": "AI repeats same error twice" },
+        { "kind": "step", "content": "STOP typing the same thing" },
+        { "kind": "decision", "content": "Is it a hallu- cination?" },
+        { "kind": "step", "content": "Clear Chat Context" },
+        { "kind": "step", "content": "Rewrite the Prompt using new constraints" },
+        { "kind": "start", "content": "Success!" }
+      ]
+    },
+    {
+      "title": "🔭 NEXT STEPS",
+      "color": "#5D6B41",
+      "content": "**Future Learning:** Explore `assets/themes/` to implement dynamic theme loading.\n**Links:** Official repo at `github.com/abuhafi/posterMaker`."
+    }
+  ]
+}

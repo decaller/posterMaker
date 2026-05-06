@@ -1,70 +1,69 @@
-# 🎨 PosterMaker: The Code-Driven Cheatsheet Factory
+# 🎨 Mindmap Cheatsheet (PosterMaker)
 
 ![Typst](https://img.shields.io/badge/Engine-Typst-239120?style=for-the-badge&logo=rust)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
-![AI-Ready](https://img.shields.io/badge/AI--Ready-Context--Bridge-8b5cf6?style=for-the-badge)
+![Universe](https://img.shields.io/badge/Typst-Universe-blue?style=for-the-badge)
 
-**PosterMaker** is a high-performance, developer-centric layout engine for building professional multi-column posters and cheatsheets. It swaps legacy LaTeX/Pandoc for **Typst**, a modern Rust-based compiler that delivers instant previews and pixel-perfect vector output.
-
----
+A high-density, mindmap-inspired technical cheatsheet template for Typst. Optimized for close-up technical reading on monitors or large-format prints.
 
 ## 🚀 Key Features
 
-- **💎 Vector First**: Pure vector logic for flowcharts and graphics. Crisp at any scale.
-- **🏗️ Data Decoupling**: Keep your content in `JSON/YAML` and your design in `Typst`.
-- **🤖 Agent-Native**: Built-in context bridges (`llms.txt`, `SKILLS.md`) for seamless AI collaboration.
-- **⚡ Blazing Fast**: Millisecond compilation times with live IDE preview.
-- **♿ Accessible**: Generates **Tagged PDFs** with proper semantic heading structures.
+- **📐 Sidebar Anchor**: Vertical rotated title frees up vertical space for content.
+- **🧱 Atomic Masonry**: Content flows vertically and fills gaps organically without splitting boxes.
+- **💎 Vector Integrity**: Built-in connectors and blueprint background for an architectural feel.
+- **🤖 AI-Ready**: Optimized for agent-assisted content generation.
 
----
+## 🛠️ Usage
 
-## 🛠️ Quick Start
+### From Typst Universe
+Add this to your `main.typ`:
 
-### 1. Install Typst
-```bash
-# Windows
-winget install typst
+```typst
+#import "@preview/mindmap-cheatsheet:0.1.0": *
 
-# macOS
-brew install typst
+#show: body => poster(
+  title: "MY SYSTEM ARCHITECTURE",
+  authors: ("Your Name",),
+  body
+)
 
-# Linux (using Cargo)
-cargo install --locked typst-cli
+#columns(3, gutter: 0.5cm)[
+  #section-box(title: "PHASE 1", color: olive)[
+    #step-box(
+      title: "Discovery",
+      desc: "Analyze requirements deeply.",
+      prompt: "What are the core metrics?",
+      result: "Documented PRD."
+    )
+  ]
+]
 ```
 
-### 2. Run the Factory
-```bash
-git clone https://github.com/yourusername/posterMaker.git
-cd posterMaker
-typst watch main.typ
-```
+### Local Development
+1. Clone the repo.
+2. Run `typst watch main.typ`.
+3. Edit `data/*.json` to update content.
 
 ---
 
-## 🗺️ The Workflow
+## 🗺️ Components
 
-1.  **Define Content**: Edit or create a JSON file in the `data/` directory.
-2.  **Toggle Layout**: Change the data source in `main.typ`.
-3.  **Refine Design**: Customize your design tokens in `template.typ`.
-4.  **Auto-Ship**: Push to GitHub to trigger the CI/CD pipeline (PDF export + AI context update).
+### `poster`
+The main layout wrapper. Handles page configuration, sidebar title, and background grid.
 
----
+### `section-box`
+A high-level container for phases or topics. Supports custom accent colors.
 
-## 🎨 Custom Fonts
-To use Google Fonts or any custom `.ttf` files:
-1.  Place your font files in `assets/fonts/`.
-2.  Typst will automatically detect them during compilation.
-3.  Update the `font` list in `template.typ` to include your new font name.
+### `step-box`
+A granular, high-density component for individual steps.
+- `title`: Step heading.
+- `desc`: Main description.
+- `prompt`: (Optional) Example user prompt.
+- `result`: (Optional) Expected outcome.
+- `failure`: (Optional) Common failure points.
+- `fix`: (Optional) Resolution steps.
 
----
-
-## 🧠 AI Bridge (For Agents)
-
-This repository is optimized for AI assistance. Agents should refer to:
-- [`llms.txt`](llms.txt): The global context map.
-- [`SPEC.md`](SPEC.md): Technical architecture and project constraints.
-- [`DESIGN.md`](DESIGN.md): Visual identity and design token specification.
-- [`SKILLS.md`](SKILLS.md): Operational instructions for LLMs.
+### `connector`
+Absolute-positioned vector lines to link boxes in a mindmap style.
 
 ---
 

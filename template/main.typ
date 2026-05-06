@@ -3,71 +3,64 @@
 // This file connects your JSON data to the Design Template.
 // ----------------------------------------------------------------------------
 
-#import "lib.typ": *
+#import "template.typ": *
 
 // 1. DATA LOADING
 #let data = json("data/repo-guide.json")
 
-// 2. THEME SELECTION
-// You can use default-theme or create overrides via theme-helper
-#let my-theme = theme-helper((
-  // colors: (primary: rgb("#0070F3")) // Uncomment to see theme-helper in action
-))
-
-// 3. HELPER: MARKDOWN RENDERER
+// 2. HELPER: MARKDOWN RENDERER
 #let render-md(content) = {
   if type(content) != str { return content }
   let converted = content.replace("**", "*").replace("#", "\#")
   eval(converted, mode: "markup")
 }
 
-// 4. TEMPLATE INITIALIZATION
+// 3. TEMPLATE INITIALIZATION
 #show: body => poster(
   title: data.title,
   authors: data.authors,
   footer: [AI Agent Context: #link("https://yourserver.com/llms.txt")],
   columns: 3,
-  theme: my-theme,
   body
 )
 
-// 5. MASONRY ENGINE (High Density)
-#columns(3, gutter: my-theme.spacing.gutter)[
+// 4. MASONRY ENGINE (High Density)
+#columns(3, gutter: 0.5cm)[
   
   // RECIPE SPECIFIC HEADER
   #if data.at("babysitting_level", default: none) != none {
-    level-badge(data.babysitting_level, data.manual_tweak, theme: my-theme)
-    v(my-theme.spacing.gutter)
+    level-badge(data.babysitting_level, data.manual_tweak)
+    v(0.5cm)
   }
 
   // CONTENT RENDERING LOOP
   #for section in data.sections {
-    block(width: 100%, breakable: false, inset: (bottom: my-theme.spacing.gutter))[
-      #section-box(title: section.title, color: if section.at("color", default: none) != none { rgb(section.color) } else { none }, theme: my-theme)[
+    block(width: 100%, breakable: false, inset: (bottom: 0.5cm))[
+      #section-box(title: section.title, color: rgb(section.color))[
         #if section.at("is_flow", default: false) {
           for (i, step) in section.steps.enumerate() {
             let content = if type(step) == str { step } else { step.at("content", default: "") }
             let kind = if type(step) == str { "step" } else { step.at("kind", default: "step") }
             
             if kind == "start" {
-              start-node(render-md(content), theme: my-theme)
+              start-node(render-md(content))
             } else if kind == "decision" {
-              decision-node(render-md(content), theme: my-theme)
+              decision-node(render-md(content))
             } else {
-              step-node(render-md(content), theme: my-theme)
+              step-node(render-md(content))
             }
             
             if i < section.steps.len() - 1 {
-              arrow-down(theme: my-theme)
+              arrow-down
             }
           }
         } else if section.at("steps", default: none) != none {
           stack(
             dir: ttb,
-            spacing: my-theme.spacing.rhythm,
+            spacing: 8pt,
             ..section.steps.map(step => {
               if type(step) == str {
-                step-box(desc: render-md(step), theme: my-theme)
+                step-box(desc: render-md(step))
               } else {
                 step-box(
                   title: step.at("title", default: ""),
@@ -75,8 +68,7 @@
                   prompt: step.at("prompt", default: ""),
                   result: render-md(step.at("result", default: "")),
                   failure: render-md(step.at("failure", default: "")),
-                  fix: render-md(step.at("fix", default: "")),
-                  theme: my-theme
+                  fix: render-md(step.at("fix", default: ""))
                 )
               }
             })
@@ -89,13 +81,14 @@
   }
 ]
 
-// 6. DECORATIVE CONNECTORS (Mindmap Feel)
-#connector(dx: -1cm, dy: 10cm, length: 3cm, angle: 45deg, theme: my-theme)
-#connector(dx: 50%, dy: 20cm, length: 5cm, angle: -30deg, theme: my-theme)
-#connector(dx: 80%, dy: 5cm, length: 4cm, angle: 120deg, theme: my-theme)
+// 5. DECORATIVE CONNECTORS (Mindmap Feel)
+// These are placed absolutely to create that "Blueprint" connectivity.
+#connector(dx: -1cm, dy: 10cm, length: 3cm, angle: 45deg)
+#connector(dx: 50%, dy: 20cm, length: 5cm, angle: -30deg)
+#connector(dx: 80%, dy: 5cm, length: 4cm, angle: 120deg)
 
-// 7. FOOTER CALLOUT
+// 6. FOOTER CALLOUT
 #v(1fr)
 #callout[
   *Pro Tip:* High-density Mindmap layout. Sidebar title frees up vertical space for technical content.
-], theme: my-theme
+]
