@@ -28,26 +28,21 @@
   )
 
   // Typography Settings: Using a high-quality academic Serif/Sans split.
-  set text(font: ("Adwaita Sans", "Cantarell", "DejaVu Sans"), size: 10pt, fill: rgb("#E6DFD8"))
+  set text(font: ("DejaVu Sans"), size: 10pt, fill: rgb("#E6DFD8"))
   
   // Title Section: A large, centered Serif title.
   block(width: 100%, inset: (bottom: 1cm))[
     #set align(center)
-    #text(font: ("DejaVu Serif", "serif"), size: 36pt, weight: "regular", fill: rgb("#FAF9F5"), tracking: -1.2pt)[#title]
+    #text(font: ("DejaVu Serif"), size: 36pt, weight: "regular", fill: rgb("#FAF9F5"), tracking: -0.9pt)[#title]
     #if authors.len() > 0 {
       v(0.5cm)
       text(size: 14pt, fill: gray.darken(50%))[#authors.join(", ")]
     }
   ]
 
-  // Main Grid Layout: This is where the magic happens.
-  // It takes all your "body" content and puts it into columns.
-  grid(
-    columns: (1fr,) * columns, // Creates 'n' columns of equal width (1fr)
-    column-gutter: 1cm,
-    row-gutter: 1cm,
-    body // Placed directly into the grid
-  )
+  // Main Layout: The body now flows directly after the title.
+  // Use a grid in your main.typ for multi-column layouts.
+  body
 }
 
 // COMPONENT: Section Box

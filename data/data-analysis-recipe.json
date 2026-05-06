@@ -1,0 +1,54 @@
+{
+  "title": "AI CO-PILOT RECIPE: DATA ANALYSIS (VARIANT A)",
+  "babysitting_level": "MEDIUM 🟡",
+  "manual_tweak": "40%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ THE REALITY CHECK",
+      "color": "#5D6B41",
+      "content": "AI is notoriously bad at math. It will confidently invent correlations that don't exist. **Always verify:** Check sums and row counts manually."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#5D6B41",
+      "content": "**Global View:** Automated cleaning and aggregation of complex datasets.\n**Motivation:** Stop fighting with CSV formatting. Define the hypothesis and let AI generate the cleaning script."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#5D6B41",
+      "content": "**Prerequisites:**\n- Python 3.10+ (Pandas/DuckDB)\n- Raw dataset with clear column names\n**Safe Credentials:** Scrub PII from CSV before uploading to AI."
+    },
+    {
+      "title": "🚀 PHASE 1: BLUEPRINT",
+      "color": "#5D6B41",
+      "content": "**Desc:** Define Schema & Hypothesis.\n**The Prompt:** *'I have a dataset with columns [A, B, C]. Plan a cleaning strategy to find X.'*\n**Point of Failure:** AI suggests a model that doesn't fit the data type.\n**The Fix:** Ask AI to justify its choice."
+    },
+    {
+      "title": "🚀 PHASE 2: BUILD",
+      "color": "#5D6B41",
+      "content": "**Desc:** Script Generation.\n**The Prompt:** *'Write the SQL query to aggregate Metric by Category. Handle nulls.'*\n**Point of Failure:** AI uses wrong SQL dialect syntax.\n**The Fix:** Specify the engine (e.g., SQLite vs PostgreSQL)."
+    },
+    {
+      "title": "🚀 PHASE 3: AUDIT",
+      "color": "#5D6B41",
+      "content": "**Desc:** Sanity Check.\n**Manual Check:** Does the sum match the raw data count?\n**Guardrails:** Use `Great Expectations` to validate data quality automatically."
+    },
+    {
+      "title": "🚀 PHASE 4: SHIP",
+      "color": "#5D6B41",
+      "content": "**Desc:** Visualization.\n**The Prompt:** *'Write Matplotlib code for a bar chart. No 3D effects.'*\n**Expected:** A clean, modern chart for your report."
+    },
+    {
+      "title": "🛡️ GUARDRAILS & TESTS",
+      "color": "#5D6B41",
+      "span": 2,
+      "content": "**Validation:** Always run a 'dry run' on a subset of data (first 100 rows). Never trust AI's statistical conclusions without cross-referencing with a secondary model or manual calculation."
+    },
+    {
+      "title": "🔭 NEXT STEPS",
+      "color": "#5D6B41",
+      "content": "**Future Learning:** Explore `dbt` for scalable transformation pipelines.\n**Links:** Pandas documentation at `pandas.pydata.org`."
+    }
+  ]
+}

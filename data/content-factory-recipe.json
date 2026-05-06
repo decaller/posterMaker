@@ -1,0 +1,54 @@
+{
+  "title": "AI CO-PILOT RECIPE: CONTENT FACTORY (VARIANT B)",
+  "babysitting_level": "LOW 🟢",
+  "manual_tweak": "20%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ THE REALITY CHECK",
+      "color": "#5D6B41",
+      "content": "AI defaults to a generic corporate 'AI voice'. It will also hallucinate facts to sound convincing. **Always verify:** Manual fact-check is mandatory."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#5D6B41",
+      "content": "**Global View:** High-speed production of distinct, brand-aligned technical content.\n**Motivation:** Scale your publishing without losing your soul to boilerplate fluff."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#5D6B41",
+      "content": "**Prerequisites:**\n- Brand Voice Guide\n- Outline Template\n- Target Audience ICP"
+    },
+    {
+      "title": "🚀 PHASE 1: BLUEPRINT",
+      "color": "#5D6B41",
+      "content": "**Desc:** Define Brand Voice & Brief.\n**The Prompt:** *'Act as a technical editor and outline a 1000-word post on X.'*\n**Point of Failure:** Outline contains irrelevant fluff.\n**The Fix:** Delete weak headers manually."
+    },
+    {
+      "title": "🚀 PHASE 2: BUILD",
+      "color": "#5D6B41",
+      "content": "**Desc:** Iterative Drafting.\n**The Prompt:** *'Write H2 section 1. Keep paragraphs < 3 sentences. No forbidden words.'*\n**Point of Failure:** AI ignores negative constraints.\n**The Fix:** Repeat constraints in every prompt."
+    },
+    {
+      "title": "🚀 PHASE 3: AUDIT",
+      "color": "#5D6B41",
+      "content": "**Desc:** Fact & Tone Check.\n**Manual Check:** Does this sound like a human wrote it?\n**Guardrails:** Run through Grammarly/Copyscape to ensure originality and tight logic."
+    },
+    {
+      "title": "🚀 PHASE 4: SHIP",
+      "color": "#5D6B41",
+      "content": "**Desc:** Formatting & SEO.\n**The Prompt:** *'Generate 3 meta titles < 60 chars.'*\n**Expected:** Publish-ready technical content."
+    },
+    {
+      "title": "🛡️ GUARDRAILS & TESTS",
+      "color": "#5D6B41",
+      "span": 2,
+      "content": "**Validation:** Never ask AI to 'write the whole post'. Modular generation ensures quality control. Use the 'Feynman Technique' audit: ask AI to explain the core concept back to you to find logic gaps."
+    },
+    {
+      "title": "🔭 NEXT STEPS",
+      "color": "#5D6B41",
+      "content": "**Future Learning:** Automate content distribution via Buffer API.\n**Links:** Writing guides at `technicalwriting.org`."
+    }
+  ]
+}

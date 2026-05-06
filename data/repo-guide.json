@@ -22,38 +22,38 @@
     {
       "title": "🚀 PHASE 1: BLUEPRINT",
       "color": "#5D6B41",
-      "content": "**Desc:** Start by editing `data/*.json` to define the poster content.\n**The Prompt:** *'Draft a JSON payload for a poster based on template.md.'*\n**Expected:** Clean JSON mapped to the 3-column grid.\n**Failure:** The AI breaks JSON syntax.\n**Fix:** Tell the agent to fix the trailing comma."
+      "content": "**Desc:** Define content in `data/*.json`. Use `idea/variations.md` for inspiration.\n**The Prompt:** *'Draft a Variant A JSON for data analysis.'*\n**Expected:** Structured JSON matching the `template.md` schema."
     },
     {
       "title": "🚀 PHASE 2: BUILD",
       "color": "#5D6B41",
-      "content": "**Desc:** Apply visual tokens to `template.typ`.\n**The Prompt:** *'Update DESIGN.md to use a warm slate palette with OKLCH values.'*\n**Expected:** A cohesive, Living Neutral color scheme.\n**Failure:** Contrast ratio is unreadable.\n**Fix:** Adjust the OKLCH chroma/lightness values manually."
+      "content": "**Desc:** Switch data in `main.typ` and tweak `template.typ` if needed.\n**The Prompt:** *'Change main.typ to use my new json and adjust the primary color.'*\n**Expected:** Local PDF/PNG reflects the new content and style."
     },
     {
       "title": "🚀 PHASE 3: AUDIT",
       "color": "#5D6B41",
-      "content": "**Desc:** Render and review visually.\n**The Prompt:** *'Run typst compile main.typ to PNG and view the file.'*\n**Expected:** A beautiful, correctly styled image.\n**Manual Check:** Does the text contrast properly against the nodes?\n**Guardrails:** Do not commit `template.typ` if it's illegible."
+      "content": "**Desc:** Run `typst compile` and check for overflows or font warnings.\n**Manual Check:** Does the tracking (-0.9pt) make the title look academic?\n**Guardrails:** Fix 'unknown font' warnings before shipping."
     },
     {
       "title": "🚀 PHASE 4: SHIP",
       "color": "#5D6B41",
-      "content": "**Desc:** Export to PDF for printing or sharing.\n**The Prompt:** *'Compile the final main.pdf and ensure vector fonts are embedded.'*\n**Expected:** A high-resolution, print-ready PDF."
+      "content": "**Desc:** Run `scripts/update_llms.sh` to sync the manifest to `llms.txt`.\n**Result:** Your new poster is now discoverable by other AI agents."
     },
     {
       "title": "🛡️ GUARDRAILS & TESTS",
       "color": "#5D6B41",
       "span": 2,
-      "content": "**Validation:** Never let the AI edit `SPEC.md` or `SKILLS.md` directly without a manual diff review. The 'Factory' layer must remain protected from the 'Product' layer changes."
+      "content": "**Validation:** Never hardcode content in `.typ` files. The 'Factory' must remain generic. Always verify your changes with `typst compile main.typ` to ensure the vector logic holds."
     },
     {
       "title": "🚨 INCIDENT REPORT",
       "color": "#5D6B41",
-      "content": "**What Happened:** Text inside flowchart nodes became invisible.\n**The Root Cause:** Inherited default cream text on light gray boxes.\n**The Fix:** Updated `step-node` to explicitly use the `canvas` background and cream text.\n**Prevention:** Always compile to PNG and inspect visually."
+      "content": "**What Happened:** Font warnings broke the clean aesthetic.\n**The Root Cause:** Variable fonts or unknown 'serif' string in `template.typ`.\n**The Fix:** Use static versions of DejaVu Sans/Serif.\n**Prevention:** Run `typst fonts` to see what is actually installed."
     },
     {
       "title": "🔭 NEXT STEPS",
       "color": "#5D6B41",
-      "content": "**Future Learning:** Learn `typst` advanced grid techniques to span rows.\n**Links:** Official docs at `typst.app/docs`."
+      "content": "**Future Learning:** Explore `assets/themes/` to implement dynamic theme loading.\n**Links:** Official repo at `github.com/abuhafi/posterMaker`."
     }
   ]
 }

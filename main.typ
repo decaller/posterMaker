@@ -6,12 +6,9 @@
 #import "template.typ": *
 
 // 1. DATA LOADING
-// You can switch posters by changing the filename here.
-// #let data = json("data/how-to.json")
 #let data = json("data/repo-guide.json")
 
 // 2. TEMPLATE INITIALIZATION
-// We call the 'poster' function and pass in the global metadata.
 #show: body => poster(
   title: data.title,
   authors: data.authors,
@@ -20,37 +17,42 @@
   body
 )
 
-// 3. RECIPE SPECIFIC HEADER
-// If the data includes "babysitting_level", we show the difficulty badge.
-#if data.at("babysitting_level", default: none) != none {
-  level-badge(data.babysitting_level, data.manual_tweak)
-  v(0.5cm)
-}
+// 3. MAIN GRID LAYOUT
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  column-gutter: 1cm,
+  row-gutter: 1cm,
 
-// 4. CONTENT RENDERING LOOP
-// We loop through each 'section' defined in your JSON file.
-#for section in data.sections {
-  // Use grid.cell to allow some sections to span multiple columns (span: 2)
-  grid.cell(colspan: section.at("span", default: 1))[
-    #section-box(title: section.title, color: rgb(section.color))[
-      
-      // If it's a "flowchart" section, render it as a sequence of steps.
-      #if section.at("is_flow", default: false) {
-        for (i, step) in section.steps.enumerate() {
-          step-node(step)
-          if i < section.steps.len() - 1 {
-            arrow-down
-          }
-        }
-      } else {
-        section.content
-      }
+  // RECIPE SPECIFIC HEADER (Spans all columns)
+  if data.at("babysitting_level", default: none) != none {
+    grid.cell(colspan: 3)[
+      #level-badge(data.babysitting_level, data.manual_tweak)
+      #v(0.5cm)
     ]
-  ]
-}
+  },
 
-// 5. FOOTER CALLOUT
-#v(1fr) // This pushes the following block to the very bottom of the page.
+  // CONTENT RENDERING LOOP
+  // We use .. and .map to ensure each section is a direct child of the grid.
+  ..data.sections.map(section => {
+    grid.cell(colspan: section.at("span", default: 1))[
+      #section-box(title: section.title, color: rgb(section.color))[
+        #if section.at("is_flow", default: false) {
+          for (i, step) in section.steps.enumerate() {
+            step-node(step)
+            if i < section.steps.len() - 1 {
+              arrow-down
+            }
+          }
+        } else {
+          section.content
+        }
+      ]
+    ]
+  })
+)
+
+// 4. FOOTER CALLOUT
+#v(1fr)
 #callout[
   *Pro Tip:* This poster is built dynamically. To change a value, just edit the JSON file!
 ]
