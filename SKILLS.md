@@ -11,7 +11,7 @@ This document provides specialized instructions for AI agents (LLMs) to interact
 1. **Never Hardcode Content**: All text must live in a `.json` file inside the `data/` directory.
 2. **Schema Compliance**: Follow the `DESIGN.md` tokens and the `main.typ` schema requirements.
 3. **Validation**: After any change, run `typst compile main.typ` to verify syntax.
-4. **Socratic Protocol**: Follow the 3-phase sequence in `llms.txt`. Ask exactly **one question** at a time. Never assume requirements.
+4. **Socratic Protocol**: Follow the 3-phase sequence in `llms.txt`. Ask exactly **one question** at a time. Suggest themes from `assets/awesome-design-md/design-md/`.
 5. **Separation of Concerns**:
    - **Allowed to Edit**: `DESIGN.md`, `README.md`, `data/*.json`.
    - **Forbidden to Edit**: `SPEC.md`, `SKILLS.md` (these are the system's "Factory Settings").

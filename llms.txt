@@ -32,9 +32,10 @@ Ask exactly **one question** at a time based on the categories in `idea/template
 6.  **Incident Report**: What are common "Death Loops" or errors for this specific task?
 
 ### Phase 2: Visual Identity Suggestion
-Based on the answers in Phase 1, suggest **3 distinct themes** from the `awesome-design-md` library. Explain *why* each theme fits the "vibe" of the project.
-- **Example**: If the task is technical/monochrome, suggest `Vercel` (High-Precision), `Linear` (Minimalist), or `Ollama` (Terminal-Native).
-- **Example**: If the task is data-dense, suggest `ClickHouse` (Technical Doc) or `Sentry` (Dashboard).
+Based on the answers in Phase 1, suggest **3 distinct themes** from your local theme library in `assets/awesome-design-md/design-md/`. 
+- Read the `DESIGN.md` of each suggested theme to explain *why* it fits the "vibe" of the project.
+- **Example**: If the task is technical/monochrome, look into `vercel/DESIGN.md` or `linear/DESIGN.md`.
+- **Example**: If the task is luxury/premium, look into `bugatti/DESIGN.md` or `ferrari/DESIGN.md`.
 
 ### Phase 3: The Build (Separation of Concerns)
 Once a theme is chosen, you are authorized to update only the **Product Layer**:

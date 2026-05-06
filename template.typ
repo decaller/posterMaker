@@ -16,7 +16,7 @@
   set page(
     paper: "a3",
     margin: (x: 1.5cm, y: 1.5cm),
-    background: place(top + left, rect(width: 100%, height: 100%, fill: rgb("#fafafa"))),
+    background: place(top + left, rect(width: 100%, height: 100%, fill: rgb("#faf9f5"))),
     footer: [
       #set text(size: 8pt, fill: gray.darken(20%))
       #grid(
@@ -27,13 +27,13 @@
     ]
   )
 
-  // Typography Settings: Using high-quality system fonts.
-  set text(font: ("Adwaita Sans", "Cantarell", "DejaVu Sans"), size: 10pt, fill: rgb("#333333"))
+  // Typography Settings: Using a high-quality academic Serif/Sans split.
+  set text(font: ("Adwaita Sans", "Cantarell", "DejaVu Sans"), size: 10pt, fill: rgb("#3d3d3a"))
   
-  // Title Section: A large, centered title block at the top.
+  // Title Section: A large, centered Serif title.
   block(width: 100%, inset: (bottom: 1cm))[
     #set align(center)
-    #text(size: 32pt, weight: "bold", fill: rgb("#1a1a1a"))[#title]
+    #text(font: ("DejaVu Serif", "serif"), size: 32pt, weight: "regular", fill: rgb("#141413"))[#title]
     #if authors.len() > 0 {
       v(0.5cm)
       text(size: 14pt, fill: gray.darken(50%))[#authors.join(", ")]
