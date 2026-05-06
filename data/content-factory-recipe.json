@@ -22,22 +22,40 @@
     {
       "title": "🚀 PHASE 1: BLUEPRINT",
       "color": "#5D6B41",
-      "content": "**Desc:** Define Brand Voice & Brief.\n**The Prompt:** *'Act as a technical editor and outline a 1000-word post on X.'*\n**Point of Failure:** Outline contains irrelevant fluff.\n**The Fix:** Delete weak headers manually."
+      "steps": [
+        { "label": "Description", "content": "Define Brand Voice & Brief." },
+        { "label": "The Prompt", "content": "*'Act as a technical editor and outline a 1000-word post on X.'*" },
+        { "label": "Failure", "content": "Outline contains irrelevant fluff." },
+        { "label": "The Fix", "content": "Delete weak headers manually." }
+      ]
     },
     {
       "title": "🚀 PHASE 2: BUILD",
       "color": "#5D6B41",
-      "content": "**Desc:** Iterative Drafting.\n**The Prompt:** *'Write H2 section 1. Keep paragraphs < 3 sentences. No forbidden words.'*\n**Point of Failure:** AI ignores negative constraints.\n**The Fix:** Repeat constraints in every prompt."
+      "steps": [
+        { "label": "Description", "content": "Iterative Drafting." },
+        { "label": "The Prompt", "content": "*'Write H2 section 1. Keep paragraphs < 3 sentences. No forbidden words.'*" },
+        { "label": "Failure", "content": "AI ignores negative constraints." },
+        { "label": "The Fix", "content": "Repeat constraints in every prompt." }
+      ]
     },
     {
       "title": "🚀 PHASE 3: AUDIT",
       "color": "#5D6B41",
-      "content": "**Desc:** Fact & Tone Check.\n**Manual Check:** Does this sound like a human wrote it?\n**Guardrails:** Run through Grammarly/Copyscape to ensure originality and tight logic."
+      "steps": [
+        { "label": "Description", "content": "Fact & Tone Check." },
+        { "label": "Manual Check", "content": "Does this sound like a human wrote it?" },
+        { "label": "Guardrails", "content": "Run through Grammarly/Copyscape to ensure originality and tight logic." }
+      ]
     },
     {
       "title": "🚀 PHASE 4: SHIP",
       "color": "#5D6B41",
-      "content": "**Desc:** Formatting & SEO.\n**The Prompt:** *'Generate 3 meta titles < 60 chars.'*\n**Expected:** Publish-ready technical content."
+      "steps": [
+        { "label": "Description", "content": "Formatting & SEO." },
+        { "label": "The Prompt", "content": "*'Generate 3 meta titles < 60 chars.'*" },
+        { "label": "Expected", "content": "Publish-ready technical content." }
+      ]
     },
     {
       "title": "🛡️ GUARDRAILS & TESTS",

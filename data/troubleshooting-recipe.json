@@ -1,0 +1,72 @@
+{
+  "title": "AI CO-PILOT RECIPE: TROUBLESHOOTING (VARIANT D)",
+  "babysitting_level": "MEDIUM 🟡",
+  "manual_tweak": "30%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ THE REALITY CHECK",
+      "color": "#5D6B41",
+      "content": "AI guesses based on common causes. If wrong, it traps you in an apology death loop. **Always verify:** Ask for theories, not a single blind fix."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#5D6B41",
+      "content": "**Global View:** Systematic isolation and resolution of system failures.\n**The Motivation:** Stop guessing. Use the scientific method to prove or disprove root causes without wiping your environment."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#5D6B41",
+      "content": "**Prerequisites:**\n- Full Error Logs\n- Version info (OS/Framework)\n- Git History (what changed last?)"
+    },
+    {
+      "title": "🚀 PHASE 1: BLUEPRINT",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Context Gathering." },
+        { "label": "The Prompt", "content": "*'I am getting this error: [X]. Here is the code and the last change I made.'*" },
+        { "label": "Failure", "content": "AI gives a command that wipes current state." },
+        { "label": "The Fix", "content": "Tell AI: 'Only suggest non-destructive diagnostics'." }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 2: BUILD",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Hypothesis Generation." },
+        { "label": "The Prompt", "content": "*'List the top 3 likely root causes. Do not give me a fix yet.'*" },
+        { "label": "Failure", "content": "AI hallucinates a non-existent config flag." },
+        { "label": "The Fix", "content": "Verify flag existence in official documentation." }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 3: AUDIT",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Isolated Testing." },
+        { "label": "The Prompt", "content": "*'How can I run a test to confirm Hypothesis 1 without changing production code?'*" },
+        { "label": "Guardrails", "content": "Snapshot your environment before applying any AI-suggested 'patches'." }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 4: SHIP",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Post-Mortem & Fix." },
+        { "label": "The Prompt", "content": "*'Hypothesis 2 was correct. Give me the patch and explain the prevention.'*" },
+        { "label": "Expected", "content": "A permanent fix and a new automated test to prevent regression." }
+      ]
+    },
+    {
+      "title": "🛡️ GUARDRAILS & TESTS",
+      "color": "#5D6B41",
+      "span": 2,
+      "content": "**Validation:** Never paste the same error back to AI twice. If it failed the first time, change the context. Use `bisect` logic manually to narrow down the breaking change before involving the AI."
+    },
+    {
+      "title": "🔭 NEXT STEPS",
+      "color": "#5D6B41",
+      "content": "**Future Learning:** Master `Wireshark` and `strace` for deep system forensics.\n**Links:** SRE handbook at `sre.google`."
+    }
+  ]
+}

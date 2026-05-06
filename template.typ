@@ -59,7 +59,7 @@
         width: 100%,
         fill: color,
         inset: 8pt,
-        text(fill: rgb("#3F443E"), weight: "bold", size: 11pt)[#title]
+        text(fill: rgb("#FAF9F5"), weight: "bold", size: 11pt)[#title]
       ),
       block(
         width: 100%,
@@ -70,8 +70,63 @@
   )
 }
 
+// COMPONENT: Step Box
+// Used for detailed steps within a phase.
+#let step-box(
+  title: "",
+  desc: "",
+  prompt: "",
+  result: "",
+  failure: "",
+  fix: ""
+) = {
+  block(
+    width: 100%,
+    inset: 12pt,
+    radius: 6pt,
+    fill: rgb("#1D221C"),
+    stroke: 0.5pt + rgb("#5D6B41"),
+    stack(
+      dir: ttb,
+      spacing: 8pt,
+      // Title
+      if title != "" { text(weight: "bold", size: 11pt, fill: rgb("#FAF9F5"))[#title] },
+      
+      // Description
+      if desc != "" { text(size: 10pt, fill: rgb("#E6DFD8"))[#desc] },
+      
+      // Prompt Block
+      if prompt != "" {
+        block(
+          width: 100%,
+          fill: rgb("#252B24"),
+          inset: 8pt,
+          radius: 4pt,
+          stroke: (left: 2pt + rgb("#5D6B41")),
+          text(size: 9pt, style: "italic", fill: rgb("#FAF9F5"))[💬 #prompt]
+        )
+      },
+      
+      // Result / Success
+      if result != "" {
+        text(size: 9pt, fill: rgb("#75FB4C").lighten(20%))[*✅ Result:* #result]
+      },
+      
+      // Failure / Warning
+      if failure != "" {
+        text(size: 9pt, fill: rgb("#ef4444").lighten(20%))[*💥 Failure:* #failure]
+      },
+      
+      // Fix
+      if fix != "" {
+        text(size: 9pt, fill: rgb("#3b82f6").lighten(20%))[*🔧 Fix:* #fix]
+      }
+    )
+  )
+}
+
 // COMPONENT: Step Node
-// Used for the workflow/flowchart sections.
+// Used for simple flowchart sequences.
 #let step-node(content, fill: rgb("#3F443E")) = {
   rect(
     inset: 8pt,

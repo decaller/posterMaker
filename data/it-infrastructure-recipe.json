@@ -1,0 +1,72 @@
+{
+  "title": "AI CO-PILOT RECIPE: IT INFRASTRUCTURE (VARIANT C)",
+  "babysitting_level": "HIGH 🔴",
+  "manual_tweak": "50%",
+  "authors": ["Antigravity AI"],
+  "sections": [
+    {
+      "title": "⚠️ THE REALITY CHECK",
+      "color": "#5D6B41",
+      "content": "AI favors 'easy' over 'secure'. It will suggest `chmod 777` or root access by reflex. **Always verify:** Check for least-privilege permissions."
+    },
+    {
+      "title": "🗺️ THE BIG PICTURE",
+      "color": "#5D6B41",
+      "content": "**Global View:** Declarative, reproducible home lab and server deployments.\n**The Motivation:** Stop building 'Snowflake' servers. Use Docker and automated configs to make your infra immortal."
+    },
+    {
+      "title": "🛠️ THE SETUP",
+      "color": "#5D6B41",
+      "content": "**Prerequisites:**\n- Debian 12 / Ubuntu Server\n- Docker & Docker Compose\n- Tailscale (Zero Trust Access)"
+    },
+    {
+      "title": "🚀 PHASE 1: BLUEPRINT",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Architecture & Networking." },
+        { "label": "The Prompt", "content": "*'I want to deploy [Service] on Debian. Outline the network bridge and storage layout.'*" },
+        { "label": "Failure", "content": "AI suggests root user for everything." },
+        { "label": "The Fix", "content": "Force AI to use non-root service accounts." }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 2: BUILD",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Config Generation." },
+        { "label": "The Prompt", "content": "*'Write the docker-compose.yml. Map volumes to ./data. No exposed DB ports.'*" },
+        { "label": "Failure", "content": "AI uses outdated V2 syntax." },
+        { "label": "The Fix", "content": "Specify 'Compose V3/V4' in the prompt." }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 3: AUDIT",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Dry Runs & Security." },
+        { "label": "Manual Check", "content": "Are passwords hardcoded? Any accidental 0.0.0.0 exposures?" },
+        { "label": "Guardrails", "content": "Run `docker-compose config` to validate YAML before spinning up." }
+      ]
+    },
+    {
+      "title": "🚀 PHASE 4: SHIP",
+      "color": "#5D6B41",
+      "steps": [
+        { "label": "Description", "content": "Deployment." },
+        { "label": "The Prompt", "content": "*'Give me the terminal commands to bring this stack up and check logs.'*" },
+        { "label": "Expected", "content": "A healthy, reachable containerized service." }
+      ]
+    },
+    {
+      "title": "🛡️ GUARDRAILS & TESTS",
+      "color": "#5D6B41",
+      "span": 2,
+      "content": "**Validation:** Always use static image tags (e.g., `postgres:16`) instead of `latest`. Use `checkov` to scan for misconfigurations. **Snapshots:** Always take a VM snapshot or backup your compose files before applying AI-generated networking changes."
+    },
+    {
+      "title": "🔭 NEXT STEPS",
+      "color": "#5D6B41",
+      "content": "**Future Learning:** Learn `Proxmox` for full VM orchestration.\n**Links:** Official Docker docs at `docs.docker.com`."
+    }
+  ]
+}

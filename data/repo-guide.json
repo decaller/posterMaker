@@ -22,22 +22,56 @@
     {
       "title": "🚀 PHASE 1: BLUEPRINT",
       "color": "#5D6B41",
-      "content": "**Desc:** Define content in `data/*.json`. Use `idea/variations.md` for inspiration.\n**The Prompt:** *'Draft a Variant A JSON for data analysis.'*\n**Expected:** Structured JSON matching the `template.md` schema."
+      "steps": [
+        {
+          "title": "Strategic Content Definition",
+          "desc": "Start by defining your poster content in the `data/` directory. Use `idea/variations.md` for inspiration on different technical contexts.",
+          "prompt": "Draft a Variant A JSON for data analysis based on the structure in template.md.",
+          "result": "A structured JSON file mapped to the 3-column grid.",
+          "failure": "The AI breaks JSON syntax or hallucinates non-existent fields.",
+          "fix": "Provide the exact JSON schema from `template.md` to the agent."
+        }
+      ]
     },
     {
       "title": "🚀 PHASE 2: BUILD",
       "color": "#5D6B41",
-      "content": "**Desc:** Switch data in `main.typ` and tweak `template.typ` if needed.\n**The Prompt:** *'Change main.typ to use my new json and adjust the primary color.'*\n**Expected:** Local PDF/PNG reflects the new content and style."
+      "steps": [
+        {
+          "title": "Visual Engine Execution",
+          "desc": "Switch the data source in `main.typ` and tweak the design tokens in `template.typ` to match your desired aesthetic.",
+          "prompt": "Change main.typ to use my new json and update the primary color to a warm slate.",
+          "result": "The local PDF/PNG reflects the new content with cohesive styling.",
+          "failure": "The layout overflows because of excessively long text strings.",
+          "fix": "Use Typst grid spanning or reduce font size for specific sections."
+        }
+      ]
     },
     {
       "title": "🚀 PHASE 3: AUDIT",
       "color": "#5D6B41",
-      "content": "**Desc:** Run `typst compile` and check for overflows or font warnings.\n**Manual Check:** Does the tracking (-0.9pt) make the title look academic?\n**Guardrails:** Fix 'unknown font' warnings before shipping."
+      "steps": [
+        {
+          "title": "Quality Assurance & Rendering",
+          "desc": "Compile the poster and inspect the visual hierarchy. Check for contrast issues and font rendering errors.",
+          "prompt": "Run typst compile main.typ and check for any font warnings or layout shifts.",
+          "result": "A high-resolution, print-ready vector file with zero compilation warnings.",
+          "failure": "Font warnings appear because a variable font is used where a static one is required.",
+          "fix": "Specify the static font weight (e.g., 'DejaVu Sans' instead of 'DejaVu Sans Variable')."
+        }
+      ]
     },
     {
       "title": "🚀 PHASE 4: SHIP",
       "color": "#5D6B41",
-      "content": "**Desc:** Run `scripts/update_llms.sh` to sync the manifest to `llms.txt`.\n**Result:** Your new poster is now discoverable by other AI agents."
+      "steps": [
+        {
+          "title": "AI Context Synchronization",
+          "desc": "Execute the automation bridge to ensure other AI agents can discover and understand your new poster.",
+          "prompt": "Run bash scripts/update_llms.sh and verify the available posters list in llms.txt.",
+          "result": "The `llms.txt` manifest is updated with the new poster title and file path."
+        }
+      ]
     },
     {
       "title": "🛡️ GUARDRAILS & TESTS",
@@ -48,7 +82,14 @@
     {
       "title": "🚨 INCIDENT REPORT",
       "color": "#5D6B41",
-      "content": "**What Happened:** Font warnings broke the clean aesthetic.\n**The Root Cause:** Variable fonts or unknown 'serif' string in `template.typ`.\n**The Fix:** Use static versions of DejaVu Sans/Serif.\n**Prevention:** Run `typst fonts` to see what is actually installed."
+      "steps": [
+        {
+          "title": "Visual Contrast Failure",
+          "desc": "Box titles were unreadable due to low contrast between text and header background.",
+          "failure": "Dark gray text (#3F443E) on dark primary background.",
+          "fix": "Updated `template.typ` to use Off-White (#FAF9F5) for all section titles."
+        }
+      ]
     },
     {
       "title": "🔭 NEXT STEPS",

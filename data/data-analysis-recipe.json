@@ -22,22 +22,40 @@
     {
       "title": "🚀 PHASE 1: BLUEPRINT",
       "color": "#5D6B41",
-      "content": "**Desc:** Define Schema & Hypothesis.\n**The Prompt:** *'I have a dataset with columns [A, B, C]. Plan a cleaning strategy to find X.'*\n**Point of Failure:** AI suggests a model that doesn't fit the data type.\n**The Fix:** Ask AI to justify its choice."
+      "steps": [
+        { "label": "Description", "content": "Define Schema & Hypothesis." },
+        { "label": "The Prompt", "content": "*'I have a dataset with columns [A, B, C]. Plan a cleaning strategy to find X.'*" },
+        { "label": "Failure", "content": "AI suggests a model that doesn't fit the data type." },
+        { "label": "The Fix", "content": "Ask AI to justify its choice." }
+      ]
     },
     {
       "title": "🚀 PHASE 2: BUILD",
       "color": "#5D6B41",
-      "content": "**Desc:** Script Generation.\n**The Prompt:** *'Write the SQL query to aggregate Metric by Category. Handle nulls.'*\n**Point of Failure:** AI uses wrong SQL dialect syntax.\n**The Fix:** Specify the engine (e.g., SQLite vs PostgreSQL)."
+      "steps": [
+        { "label": "Description", "content": "Script Generation." },
+        { "label": "The Prompt", "content": "*'Write the SQL query to aggregate Metric by Category. Handle nulls.'*" },
+        { "label": "Failure", "content": "AI uses wrong SQL dialect syntax." },
+        { "label": "The Fix", "content": "Specify the engine (e.g., SQLite vs PostgreSQL)." }
+      ]
     },
     {
       "title": "🚀 PHASE 3: AUDIT",
       "color": "#5D6B41",
-      "content": "**Desc:** Sanity Check.\n**Manual Check:** Does the sum match the raw data count?\n**Guardrails:** Use `Great Expectations` to validate data quality automatically."
+      "steps": [
+        { "label": "Description", "content": "Sanity Check." },
+        { "label": "Manual Check", "content": "Does the sum match the raw data count?" },
+        { "label": "Guardrails", "content": "Use `Great Expectations` to validate data quality automatically." }
+      ]
     },
     {
       "title": "🚀 PHASE 4: SHIP",
       "color": "#5D6B41",
-      "content": "**Desc:** Visualization.\n**The Prompt:** *'Write Matplotlib code for a bar chart. No 3D effects.'*\n**Expected:** A clean, modern chart for your report."
+      "steps": [
+        { "label": "Description", "content": "Visualization." },
+        { "label": "The Prompt", "content": "*'Write Matplotlib code for a bar chart. No 3D effects.'*" },
+        { "label": "Expected", "content": "A clean, modern chart for your report." }
+      ]
     },
     {
       "title": "🛡️ GUARDRAILS & TESTS",

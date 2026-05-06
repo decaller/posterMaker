@@ -8,7 +8,16 @@
 // 1. DATA LOADING
 #let data = json("data/repo-guide.json")
 
-// 2. TEMPLATE INITIALIZATION
+// 2. HELPER: MARKDOWN RENDERER
+#let render-md(content) = {
+  if type(content) != str { return content }
+  // Replace standard MD bold (**) with Typst strong (*)
+  // Escape # to prevent accidental Typst command evaluation
+  let converted = content.replace("**", "*").replace("#", "\#")
+  eval(converted, mode: "markup")
+}
+
+// 3. TEMPLATE INITIALIZATION
 #show: body => poster(
   title: data.title,
   authors: data.authors,
@@ -17,7 +26,7 @@
   body
 )
 
-// 3. MAIN GRID LAYOUT
+// 4. MAIN GRID LAYOUT
 #grid(
   columns: (1fr, 1fr, 1fr),
   column-gutter: 1cm,
@@ -32,26 +41,47 @@
   },
 
   // CONTENT RENDERING LOOP
-  // We use .. and .map to ensure each section is a direct child of the grid.
   ..data.sections.map(section => {
     grid.cell(colspan: section.at("span", default: 1))[
       #section-box(title: section.title, color: rgb(section.color))[
         #if section.at("is_flow", default: false) {
+          // Flowchart mode (Sequence of nodes)
           for (i, step) in section.steps.enumerate() {
-            step-node(step)
+            step-node(render-md(step))
             if i < section.steps.len() - 1 {
               arrow-down
             }
           }
+        } else if section.at("steps", default: none) != none {
+          // Detailed Steps mode (List of step-boxes)
+          stack(
+            dir: ttb,
+            spacing: 12pt,
+            ..section.steps.map(step => {
+              if type(step) == str {
+                step-box(desc: render-md(step))
+              } else {
+                step-box(
+                  title: step.at("title", default: ""),
+                  desc: render-md(step.at("desc", default: "")),
+                  prompt: step.at("prompt", default: ""),
+                  result: render-md(step.at("result", default: "")),
+                  failure: render-md(step.at("failure", default: "")),
+                  fix: render-md(step.at("fix", default: ""))
+                )
+              }
+            })
+          )
         } else {
-          section.content
+          // Standard content mode
+          render-md(section.content)
         }
       ]
     ]
   })
 )
 
-// 4. FOOTER CALLOUT
+// 5. FOOTER CALLOUT
 #v(1fr)
 #callout[
   *Pro Tip:* This poster is built dynamically. To change a value, just edit the JSON file!

@@ -50,4 +50,6 @@ Once a theme is chosen, you are authorized to update only the **Product Layer**:
 - **AI CO-PILOT RECIPE: CONTENT FACTORY (VARIANT B)**: defined in `data/content-factory-recipe.json`
 - **AI CO-PILOT RECIPE: DATA ANALYSIS (VARIANT A)**: defined in `data/data-analysis-recipe.json`
 - **HOW TO BUILD A POSTER WITH POSTERMAKER**: defined in `data/how-to.json`
+- **AI CO-PILOT RECIPE: IT INFRASTRUCTURE (VARIANT C)**: defined in `data/it-infrastructure-recipe.json`
 - **AI CO-PILOT RECIPE: HOW TO USE POSTERMAKER**: defined in `data/repo-guide.json`
+- **AI CO-PILOT RECIPE: TROUBLESHOOTING (VARIANT D)**: defined in `data/troubleshooting-recipe.json`
