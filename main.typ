@@ -24,24 +24,18 @@
   body
 )
 
-// 4. MASONRY LAYOUT ENGINE
-// We use columns() + breakable: false blocks to create a Masonry effect.
-// Content flows vertically and fills the next column instead of sticking to rows.
-#columns(3, gutter: 1cm)[
+// 4. MASONRY ENGINE (High Density)
+#columns(3, gutter: 0.5cm)[
   
   // RECIPE SPECIFIC HEADER
-  // Note: Columns don't support easy colspan: 3 for headers. 
-  // We place it outside if needed, or keep it in flow.
   #if data.at("babysitting_level", default: none) != none {
     level-badge(data.babysitting_level, data.manual_tweak)
-    v(1cm)
+    v(0.5cm)
   }
 
   // CONTENT RENDERING LOOP
   #for section in data.sections {
-    // block(breakable: false) is the key to Masonry. 
-    // It prevents a section from splitting between columns.
-    block(width: 100%, breakable: false, inset: (bottom: 1cm))[
+    block(width: 100%, breakable: false, inset: (bottom: 0.5cm))[
       #section-box(title: section.title, color: rgb(section.color))[
         #if section.at("is_flow", default: false) {
           for (i, step) in section.steps.enumerate() {
@@ -63,7 +57,7 @@
         } else if section.at("steps", default: none) != none {
           stack(
             dir: ttb,
-            spacing: 12pt,
+            spacing: 8pt,
             ..section.steps.map(step => {
               if type(step) == str {
                 step-box(desc: render-md(step))
@@ -87,8 +81,14 @@
   }
 ]
 
-// 5. FOOTER CALLOUT
+// 5. DECORATIVE CONNECTORS (Mindmap Feel)
+// These are placed absolutely to create that "Blueprint" connectivity.
+#connector(dx: -1cm, dy: 10cm, length: 3cm, angle: 45deg)
+#connector(dx: 50%, dy: 20cm, length: 5cm, angle: -30deg)
+#connector(dx: 80%, dy: 5cm, length: 4cm, angle: 120deg)
+
+// 6. FOOTER CALLOUT
 #v(1fr)
 #callout[
-  *Pro Tip:* This is a Masonry layout. Content flows vertically to fill gaps!
+  *Pro Tip:* High-density Mindmap layout. Sidebar title frees up vertical space for technical content.
 ]

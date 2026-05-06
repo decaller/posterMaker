@@ -4,7 +4,6 @@
 // ----------------------------------------------------------------------------
 
 // The main 'poster' function that wraps everything.
-// Think of this as the "Layout Engine".
 #let poster(
   title: "",
   authors: (),
@@ -12,37 +11,62 @@
   columns: 3,
   body
 ) = {
-  // Page Configuration: Setting paper size, margins, and background color.
+  // Page Configuration: Tighter margins for density.
   set page(
     paper: "a3",
-    margin: (x: 1.5cm, y: 1.5cm),
-    background: place(top + left, rect(width: 100%, height: 100%, fill: rgb("#3F443E"))),
+    margin: (left: 3.5cm, right: 1cm, top: 1cm, bottom: 1cm), // Wide left margin for sidebar title
+    background: {
+      // Midnight Floor
+      place(top + left, rect(width: 100%, height: 100%, fill: rgb("#3F443E")))
+      // Subtle Blueprint Grid
+      for x in range(0, 100, step: 5) {
+        place(top + left, dx: (x * 1%), line(start: (0%, 0%), end: (0%, 100%), stroke: 0.1pt + rgb("#5D6B41").darken(40%)))
+      }
+      for y in range(0, 100, step: 5) {
+        place(top + left, dy: (y * 1%), line(start: (0%, 0%), end: (100%, 0%), stroke: 0.1pt + rgb("#5D6B41").darken(40%)))
+      }
+    },
     footer: [
-      #set text(size: 8pt, fill: gray.darken(20%))
+      #set text(size: 7pt, fill: gray.darken(20%))
       #grid(
         columns: (1fr, 1fr),
         align(left)[#footer],
-        align(right)[Generated with PosterMaker (Typst)]
+        align(right)[Generated with PosterMaker (Mindmap Edition)]
       )
     ]
   )
 
-  // Typography Settings: Using a high-quality academic Serif/Sans split.
-  set text(font: ("DejaVu Sans"), size: 10pt, fill: rgb("#E6DFD8"))
+  // Typography Settings: High density (9pt body).
+  set text(font: ("DejaVu Sans"), size: 9pt, fill: rgb("#E6DFD8"))
   
-  // Title Section: A large, centered Serif title.
-  block(width: 100%, inset: (bottom: 1cm))[
-    #set align(center)
-    #text(font: ("DejaVu Serif"), size: 36pt, weight: "regular", fill: rgb("#FAF9F5"), tracking: -0.9pt)[#title]
-    #if authors.len() > 0 {
-      v(0.5cm)
-      text(size: 14pt, fill: gray.darken(50%))[#authors.join(", ")]
-    }
-  ]
+  // SIDEBAR TITLE: Rotated vertical title to save vertical space.
+  place(
+    top + left,
+    dx: -2.8cm,
+    dy: 100% - 2cm,
+    rotate(-90deg, origin: left + top)[
+      #block(width: 25cm)[
+        #text(font: ("DejaVu Serif"), size: 42pt, weight: "bold", fill: rgb("#FAF9F5").darken(5%), tracking: -1.5pt)[#title]
+        #if authors.len() > 0 {
+          h(1cm)
+          text(size: 12pt, fill: rgb("#5D6B41").lighten(40%))[*By:* #authors.join(", ")]
+        }
+      ]
+    ]
+  )
 
-  // Main Layout: The body now flows directly after the title.
-  // Use a grid in your main.typ for multi-column layouts.
+  // Main Layout
   body
+}
+
+// COMPONENT: Mindmap Connector
+// A simple line to link boxes across the flow.
+#let connector(dx: 0pt, dy: 0pt, length: 2cm, angle: 0deg) = {
+  place(
+    dx: dx,
+    dy: dy,
+    rotate(angle, origin: left + top, line(length: length, stroke: 0.5pt + rgb("#5D6B41").darken(30%)))
+  )
 }
 
 // COMPONENT: Section Box
@@ -51,20 +75,20 @@
   block(
     width: 100%,
     stroke: 0.5pt + color,
-    radius: 8pt,
+    radius: 6pt,
     clip: true,
     fill: rgb("#252B24"),
     stack(
       block(
         width: 100%,
         fill: color,
-        inset: 8pt,
-        text(fill: rgb("#FAF9F5"), weight: "bold", size: 11pt)[#title]
+        inset: 6pt,
+        text(fill: rgb("#FAF9F5"), weight: "bold", size: 10pt)[#title]
       ),
       block(
         width: 100%,
-        inset: 12pt,
-        text(fill: rgb("#FAF9F5"), size: 10pt)[#body]
+        inset: 10pt,
+        text(fill: rgb("#FAF9F5"), size: 9pt)[#body]
       )
     )
   )
