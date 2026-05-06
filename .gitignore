@@ -1,0 +1,12 @@
+# Typst output
+*.pdf
+*.png
+*.svg
+
+# IDE settings
+.vscode/
+.zed/
+
+# System files
+.DS_Store
+Thumbs.db

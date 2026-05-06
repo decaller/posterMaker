@@ -1,0 +1,28 @@
+name: Compile Poster
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.typ'
+      - 'data/**'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Typst
+        uses: chiyadev/setup-typst@v1
+
+      - name: Compile Poster
+        run: typst compile main.typ poster.pdf
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: poster
+          path: poster.pdf

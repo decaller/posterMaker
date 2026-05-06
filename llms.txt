@@ -1,0 +1,19 @@
+# PosterMaker: Code-Driven High-Visual Cheatsheets
+
+This repository is a factory for building professional, multi-column posters using Typst. It favors vector graphics over pixels and separation of concerns (content in JSON/YAML, layout in Typst).
+
+## Project Structure
+- `main.typ`: The primary entry point.
+- `template.typ`: The layout engine and design system.
+- `data/`: Content files (JSON/YAML).
+- `assets/`: Vector icons and static assets.
+
+## The Workflow
+1. Define your content in `data/`.
+2. Map the data into the layout in `main.typ`.
+3. Compile using `typst watch main.typ`.
+
+## Design Philosophy
+- **Vector First**: All flowcharts and icons should be drawn using Typst code or SVG.
+- **Tagged PDF**: Ensure accessibility by using semantic Typst headings.
+- **Cheatsheet Vibe**: Use grids, boxes, and high contrast.
